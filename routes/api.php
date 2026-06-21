@@ -11,3 +11,5 @@ Route::get('/test', function (Request $request) {
 });
 
 Route::get('/muscles', [MuscleController::class, 'index']);
+
+Route::get('/exercices/muscle/{muscleId}', [MuscleController::class, 'showExercisesByMuscles']);

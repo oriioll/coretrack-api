@@ -15,7 +15,16 @@ class WgerApiService
      */
     public function getAllMuscles()
     {
-        $response = Http::get($this->BASE_URL . '/muscle/');
+        $response = Http::get($this->BASE_URL . '/muscle');
+        return $response->json();
+    }
+
+    public function getExercisesByMuscleId(int $id)
+    {
+        $response = Http::get($this->BASE_URL . '/exerciseinfo/', [
+            'muscles' => $id,
+            'language' => 2
+        ]);
         return $response->json();
     }
 }
